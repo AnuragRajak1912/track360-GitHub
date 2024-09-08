@@ -8,6 +8,13 @@
     },
 
     {
+      "Date": "08/09/2024",
+      "Done By": "Anurag Rajak",
+      "Description": "Created userSchema.js and a basic server for adding user to DB and a url /users to check all users present in DB",
+      "Instruction": "Verify it"
+    },
+
+    {
 
     }
 

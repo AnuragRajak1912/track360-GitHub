@@ -2,7 +2,7 @@
   "name": "track360",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "mongoose": "^8.5.1",
