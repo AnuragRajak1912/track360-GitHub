@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sofadi+One&family=Unlock&display=swap');
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
@@ -38,9 +39,10 @@ body {
   }
 
   .nav-360{
+    font-family: "Unlock", serif;
     padding: 0.38rem 1rem;
     padding-right: 2rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: bold;
     background-image: url();
     background-size: 4rem;
@@ -742,10 +744,15 @@ color: #009CFF;
 }
 
 .footer-360{
+  font-family: "Unlock", serif;
   position: absolute;
   color: rgba(255, 255, 255, 0.208);
   font-size: 6.5rem;
   text-align: center;
-  left: 2%;
-  top: 5%;
+  left: 4%;
+  top: 13%;
+}
+
+.footer-360 span{
+  color: #50dd57a8;
 }
