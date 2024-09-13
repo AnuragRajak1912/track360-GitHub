@@ -2,10 +2,8 @@
 const { Router } = require('express');
 const router = Router();
 
+const { logout } = require('../controllers/Auth');
 // Routes
-router.get('/',(req,res)=>{
-    res.clearCookie('authToken');
-    res.redirect('/');
-})
+router.get('/',logout);
 
 module.exports = router;

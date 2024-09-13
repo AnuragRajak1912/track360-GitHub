@@ -25,7 +25,21 @@
     },
 
     {
+      "Date":"12/09/2024",
+      "Done By":"Akshat Jain",
+      "Description":"Created the landing page for track360"
+    },
 
+    {
+      "Date":"12/09/2024",
+      "Done By":"Akshat Jain",
+      "Description":"Offloaded the controller functions from the routes and added them to their suitable controllers"
+    },
+
+    {
+      "Date":"12/09/2024",
+      "Done By":"Akshat Jain",
+      "Description":"Moved the utility files and functions (formatText.js,jwt.js,storage.js) to the utility folder"
     }
 
 ]   

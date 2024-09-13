@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Importing Function Created By track360 Team
-const {formatText} = require('./formatText')
+const {formatText} = require("./formatText")
 
 function createDirectory(company,gov){
     if(!company || !gov) return null;
