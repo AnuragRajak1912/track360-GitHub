@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sofadi+One&family=Unlock&display=swap');
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
@@ -38,9 +39,10 @@ body {
   }
 
   .nav-360{
+    font-family: "Unlock", serif;
     padding: 0.38rem 1rem;
     padding-right: 2rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: bold;
     background-image: url();
     background-size: 4rem;
@@ -67,7 +69,7 @@ body {
     text-decoration: none;
   }
   .nav-items a:hover{
-    color: #1364F1;
+    color: #009CFF;
     font-weight: 500;
   }
 
@@ -78,7 +80,7 @@ body {
     height: 2px;
     bottom: 0; 
     left: 50%;
-    background-color:#1364F1;
+    background-color:#009CFF;
     transition: width 0.3s ease, left 0.3s ease;
   }
   
@@ -102,10 +104,10 @@ body {
 
   .log-in{
 padding-right: 1rem;
-border: 1px solid rgb(2, 73, 139);
+border: 1px solid 009CFF;
 border-radius: 2px;
 padding: 0.2rem 1rem;
-background-color: #1364F1;
+background-color: #009CFF;
 color:white;
 font-weight: bold;
 transition: transform background-color 0.3s ease; 
@@ -113,7 +115,7 @@ transition: transform background-color 0.3s ease;
 
   .log-in:hover{
     transform: scale(1.05);
-    background-color: #064cc6;
+    background-color: #009CFF;
     cursor: pointer;
   }
 
@@ -149,7 +151,7 @@ transition: transform background-color 0.3s ease;
 }
 
 .hero-heading blue{
-  color: #064cc6;
+  color: #009CFF;
 }
 .hero-heading black{
   color: black;
@@ -171,12 +173,12 @@ font-size: 1rem;
 }
 
 .hero-button{
-  border: 1px solid rgb(2, 73, 139);
+  border: 1px solid 009CFF;
   border-radius: 2px;
   font-size: 1.05rem;
   padding: 0.5rem 1rem;
   align-self: baseline;
-  background-color: #1364F1;
+  background-color: #009CFF;
   color:white;
   font-weight: bold;
   transition: transform background-color 0.3s ease; 
@@ -184,7 +186,7 @@ font-size: 1rem;
   
     .hero-button:hover{
       transform: scale(1.05);
-      background-color: #064cc6;
+      background-color: #009CFF;
       cursor: pointer;
     }
 
@@ -233,7 +235,7 @@ font-size: 1rem;
 }
 
 .partner-left h1{
-  color: #064cc6;
+  color: #009CFF;
   padding: 0rem;
 }
 
@@ -341,7 +343,7 @@ margin-bottom: 60px;
 .section-head h4 {
 position: relative;
 padding:0;
-color:#064cc6;
+color:#009CFF;
 line-height: 1;
 letter-spacing:0.3px;
 font-size: 34px;
@@ -354,7 +356,7 @@ margin-bottom:30px;
 content: '';
 width: 60px;
 height: 3px;
-background: #064cc6;
+background: #009CFF;
 position: absolute;
 left: 0px;
 bottom: -10px;
@@ -391,7 +393,7 @@ text-transform: none;
 content: '';
 width: 60px;
 height: 3px;
-background: #064cc6;
+background: #009CFF;
 position: absolute;
 left: 0px;
 bottom: -10px;
@@ -400,7 +402,7 @@ margin: 0 auto;
 }
 .extra-text span {
 font-weight: 700;
-color:#064cc6;
+color:#009CFF;
 }
 .item {
 background: #fff;
@@ -416,7 +418,7 @@ transition: all .5s ease 0;
 transition: all 0.5s ease 0s;
 }
 .item:hover{
-background:#0058f0;
+background:#009CFF;
 box-shadow:0 8px 20px 0px rgba(0, 0, 0, 0.2);
 -webkit-transition: all .5s ease 0;
 transition: all .5s ease 0;
@@ -438,7 +440,7 @@ transition: all 0.5s ease 0s;
 .item .icon {
 font-size: 40px;
 margin-bottom:25px;
-color: #064cc6;   
+color: #009CFF;   
 width: 90px;
 height: 90px;
 line-height: 96px;
@@ -446,27 +448,27 @@ border-radius: 50px;
 }
 .item .feature_box_col_one{
 background:rgba(247, 198, 5, 0.20);
-color:#064cc6
+color:#009CFF
 }
 .item .feature_box_col_two{
 background:rgba(255, 77, 28, 0.15);
-color:#064cc6
+color:#009CFF
 }
 .item .feature_box_col_three{
 background:rgba(0, 147, 38, 0.15);
-color:#064cc6
+color:#009CFF
 }
 .item .feature_box_col_four{
 background:rgba(0, 108, 255, 0.15);
-color:#064cc6
+color:#009CFF
 }
 .item .feature_box_col_five{
 background:rgba(146, 39, 255, 0.15);
-color:#064cc6
+color:#009CFF
 }
 .item .feature_box_col_six{
 background:rgba(23, 39, 246, 0.15);
-color:#064cc6
+color:#009CFF
 }
 .item p{
 font-size:15px;
@@ -488,7 +490,7 @@ width: 50px;
 height: 50px;
 line-height: 50px;
 text-align: center;
-background: #064cc6;
+background: #009CFF;
 border-radius: 50%;
 color: #fff;
 font-size: 25px;
@@ -515,7 +517,7 @@ margin-bottom: 10px;
 .skills .prog-item .skills-progress {
 width: 100%;
 height: 10px;
-background: #1364F1;
+background: #009CFF;
 border-radius:20px;
 position: relative;
 }
@@ -524,7 +526,7 @@ position: absolute;
 left: 0;
 top: 0;
 height: 100%;
-background: #064cc6;
+background: #009CFF;
 width: 10%;
 border-radius: 10px;
 -webkit-transition: all 1s;
@@ -552,7 +554,7 @@ border-radius: 30px;
 }
 
 .modal-footer a:hover{
-  color: #1364F1;
+  color: #009CFF;
 }
 
 .support{
@@ -619,7 +621,7 @@ border-radius: 30px;
 .support-right h1{
   margin-top: 4rem;
 padding: 1rem 0rem;
-color: #1c00a5;
+color: #009CFF;
 }
 
 .support-right p{
@@ -652,7 +654,7 @@ color: #1c00a5;
 .support-icon{
   font-size: 3.5rem;
   padding: 1.2rem 0 0 0;
-  color: #5e93ef;
+  color: #009CFF;
 }
 
 .support-card h5{
@@ -669,12 +671,12 @@ color: #1c00a5;
 }
 
 .support-button{
-  border: 1px solid rgb(2, 73, 139);
+  border: 1px solid #009CFF;
   border-radius: 4px;
   font-size: 0.9rem;
   padding: 0.6rem 1rem;
   align-self: center;
-  background-color: #5e93ef;
+  background-color: #009CFF;
   color:white;
   font-weight: bold;
   transition: transform background-color 0.3s ease; 
@@ -682,7 +684,7 @@ color: #1c00a5;
   
 .support-button:hover{
   transform: scale(1.05);
-  background-color: #064cc6;
+  background-color: #009CFF;
   cursor: pointer;
 }
 
@@ -706,7 +708,7 @@ color: #1c00a5;
 }
 
 .footer-icon{
-  color: #1c00a5;
+  color: #009CFF;
   font-size: 2rem;
 }
 
@@ -721,7 +723,7 @@ color: #1c00a5;
 
 .footer-link a:hover{
 transform: scale(1.2);
-color: #1c00a5;
+color: #009CFF;
 }
 
 .footer-feature{
@@ -730,7 +732,7 @@ color: #1c00a5;
 }
 
 .footer-lower{
-  background-color: #1c00a5;
+  background-color: #009CFF;
   color: white;
   padding: 1rem;
   padding-bottom: 0;
@@ -742,10 +744,15 @@ color: #1c00a5;
 }
 
 .footer-360{
+  font-family: "Unlock", serif;
   position: absolute;
   color: rgba(255, 255, 255, 0.208);
   font-size: 6.5rem;
   text-align: center;
-  left: 2%;
-  top: 5%;
+  left: 4%;
+  top: 13%;
+}
+
+.footer-360 span{
+  color: #50dd57a8;
 }

@@ -7,6 +7,12 @@
     },
 
     {
+      "Date":"9/09/2024",
+      "Done By":"Akshat Jain",
+      "Description":"Created the landing page for track360"
+    },
+
+    {
       "Date": "10/09/2024",
       "Done By": "Anurag Rajak",
       "Description": "Completed with the superUser"
@@ -26,12 +32,6 @@
 
     {
       "Date":"11/09/2024",
-      "Done By":"Akshat Jain",
-      "Description":"Created the landing page for track360"
-    },
-
-    {
-      "Date":"12/09/2024",
       "Done By":"Akshat Jain",
       "Description":"Offloaded the controller functions from the routes and added them to their suitable controllers"
     },
