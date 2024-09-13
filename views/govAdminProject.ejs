@@ -40,7 +40,10 @@
                             <li><a class="dropdown-item" href="/logout">LogOut</a></li>
                         </ul>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">GovAdmin Dashboard</a>
+                            <a class="nav-link active" aria-current="page" href="#">Project Id - <%= projectId %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">GovAdmin</a>
                         </li>
                     </li>
                 </ul>
@@ -49,20 +52,59 @@
     </nav>
 
     <div class="container my-4">
-        <% for( let index = 0; index < projectNames.length; index++ ) { %>
-            <div class="card my-4">
-                <div class="card-header">
-                <%= projectNames[index] %> <%= projectIds[index] %>
-                </div>
-                <div class="card-body">
-                <!-- <h5 class="card-title"></h5> -->
-                <p class="card-text">Project Description - <%= projectDescriptions[index] %></p>
-                <a href="/gov/admin/addUser/project/<%= projectIds[index] %>" class="btn btn-primary">Add Users</a>
-                </div>
+
+        
+      <% if (typeof status !== 'undefined') { %>
+        <% if (status === 'SUCCESS') { %>
+            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } else if (status === 'ERROR') { %>
+            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <% } %>
-    </div>
+    <% } %>
     
+        <form method="post" action="/gov/admin/addUser/project/<%= projectId %>">
+
+          <h3>Add Users ...</h3>  
+
+          <label>Gov QA emails</label>
+          <div class="form-group my-4"></div>
+            <div id="govEmails">
+                <input 
+                    type="email" 
+                    class="form-control my-4" 
+                    name="govQA_email[]" 
+                    placeholder="Enter Gov QA Email">
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addEmailField('govEmails', 'govQA_email[]')">Add More</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+          
+        </form>
+      </div>
+
+
+        <script>
+            function addEmailField(containerId, fieldName) {
+                const container = document.getElementById(containerId);
+                const input = document.createElement('input');
+                input.type = 'email';
+                input.name = fieldName;
+                input.placeholder = 'Enter Gov QA Email';
+                input.classList.add('form-control', 'my-4');
+                container.appendChild(input);
+            }
+        </script>
+
+   
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

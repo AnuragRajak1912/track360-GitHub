@@ -1,5 +1,5 @@
-HTTP PATCH requests are used to make partial updates on a resource. PUT requests are used to modify/replace all resource entities. PATCH method is the correct choice for partially updating an existing resource and PUT should only be used if you're replacing a resource entirely.
-
 I am Starting with, making a controller for govAdmin to end users in the project.
 
+Finally, finished with this now once the companyAdmin creates the project, in the gov Admin dashboard the govAdmin can see the project and add users to it.
+create 2-3 projects and then verify it.
 <!--                            X   X   X                             -->

@@ -81,6 +81,11 @@ const projectSchema = new Schema({
             type : Schema.Types.ObjectId,
             ref : 'emp',
         }],
+
+        govQA : [{
+            type : Schema.Types.ObjectId,
+            ref : 'gov',
+        }],
     },
 
     dirPath: {
