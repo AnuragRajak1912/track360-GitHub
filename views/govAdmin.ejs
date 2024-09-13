@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+      
+          .fontError {
+            font-family: "Allerta Stencil", sans-serif !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+          }
+        </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">track360</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <%= name %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/gov/admin/addUser">Add Users</a></li>
+                            <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">GovAdmin</a>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        
+      <% if (typeof status !== 'undefined') { %>
+        <% if (status === 'SUCCESS') { %>
+            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } else if (status === 'ERROR') { %>
+            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+    <% } %>
+    
+        <form id="" method="post" action="/gov/admin/addUser">
+
+          <h3>Add Users ...</h3>  
+
+          <div class="form-group my-4">
+            <label for="emp_name">emp_name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="emp_name" 
+                placeholder="Enter name of the Company"
+                name="emp_name">
+          </div>
+          <div class="form-group my-4">
+            <label for="emp_email">emp_email</label>
+            <input 
+                type="email" 
+                class="form-control" 
+                id="emp_email" 
+                placeholder="Enter name of the Company"
+                name="emp_email">
+          </div>
+          <div class="form-group my-4">
+            <label for="emp_password">emp_password</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                id="emp_password" 
+                placeholder="Enter name of the Company"
+                name="emp_password">
+          </div>
+          
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+
+     
+
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

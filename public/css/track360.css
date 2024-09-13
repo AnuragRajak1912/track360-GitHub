@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
+
+#logoName {
+    font-family: "Fascinate Inline", system-ui !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}

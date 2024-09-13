@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+      
+          .fontError {
+            font-family: "Allerta Stencil", sans-serif !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+          }
+        </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">track360</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <%= name %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/company/admin/addUser">Add Users</a></li>
+                            <li><a class="dropdown-item" href="/company/admin/addProject">Add Projects</a></li>
+                            <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">CompanyAdmin</a>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        
+      <% if (typeof status !== 'undefined') { %>
+        <% if (status === 'SUCCESS') { %>
+            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } else if (status === 'ERROR') { %>
+            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
+                <strong><%= status %></strong> -> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+    <% } %>
+    
+        <% if(display==='Add User'){ %>    
+            <form id="" method="post" action="/company/admin/addUser">
+
+            <h3>Add Users ...</h3>  
+
+            <div class="form-group my-4">
+                <label for="emp_name">emp_name</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="emp_name" 
+                    placeholder="Enter name of the Company"
+                    name="emp_name">
+            </div>
+            <div class="form-group my-4">
+                <label for="emp_email">emp_email</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="emp_email" 
+                    placeholder="Enter name of the Company"
+                    name="emp_email">
+            </div>
+            <div class="form-group my-4">
+                <label for="emp_password">emp_password</label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    id="emp_password" 
+                    placeholder="Enter name of the Company"
+                    name="emp_password">
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        <% } %>
+
+        <% if(display==='Add Project'){ %>    
+            <form id="" method="post" action="/company/admin/addProject">
+
+            <h3>Add Projects ...</h3>  
+
+            <div class="form-group my-4">
+                <label for="project_name">project_name</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="project_name" 
+                    placeholder="Enter name of the Company"
+                    name="project_name">
+            </div>
+            <div class="form-group my-4">
+                <label for="project_description">project_description</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="project_description" 
+                    placeholder="Enter name of the Company"
+                    name="project_description">
+            </div>
+            <div class="form-group my-4">
+                <label for="gov_ministry">gov_ministry</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="gov_ministry" 
+                    placeholder="Enter name of the Company"
+                    name="gov_ministry">
+            </div>
+            <div class="form-group my-4">
+                <label for="project_startDate">project_startDate</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="project_startDate" 
+                    placeholder="Enter name of the Company"
+                    name="project_startDate">
+            </div>
+            <div class="form-group my-4">
+                <label for="project_forcasted_endDate">project_forcasted_endDate</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="project_forcasted_endDate" 
+                    placeholder="Enter name of the Company"
+                    name="project_forcasted_endDate">
+            </div>
+            <div class="form-group my-4">
+                <label for="budget_allotted">budget_allotted</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="budget_allotted" 
+                    placeholder="Enter name of the Company"
+                    name="budget_allotted">
+            </div>
+            <div class="form-group my-4">
+                <label class="form-check-label" for="isPrivate">
+                    isPrivate
+                </label>
+                <input 
+                    type="checkbox" 
+                    class="form-check-input" 
+                    id="isPrivate"
+                    value="true" 
+                    name="isPrivate">
+            </div>
+
+            <h3>Add Uers to Project...</h3>
+
+            <div class="form-group my-4">
+                <label>Project Manager's Emails</label>
+                <div id="pmEmails">
+                    <input 
+                        type="email" 
+                        class="form-control my-2" 
+                        name="PM_email[]" 
+                        placeholder="Enter Project Manager's Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('pmEmails', 'PM_email[]')">Add More</button>
+            </div>
+            <div class="form-group my-4">
+                <label>Quality Assurance Officer's Emails</label>
+                <div id="qaEmails">
+                    <input 
+                        type="email" 
+                        class="form-control my-2" 
+                        name="QA_email[]" 
+                        placeholder="Enter Quality Assurance Officer's Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('qaEmails', 'QA_email[]')">Add More</button>
+            </div>
+            <div class="form-group my-4">
+                <label>Human Resource Manager's Emails</label>
+                <div id="hrEmails">
+                    <input 
+                        type="email" 
+                        class="form-control my-2" 
+                        name="HR_email[]" 
+                        placeholder="Enter Human Resource Manager's Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('hrEmails', 'HR_email[]')">Add More</button>
+            </div>
+            <div class="form-group my-4">
+                <label>Financial Officer's Emails</label>
+                <div id="foEmails">
+                    <input 
+                        type="email" 
+                        class="form-control my-2" 
+                        name="FO_email[]" 
+                        placeholder="Enter Financial Officer's Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('foEmails', 'FO_email[]')">Add More</button>
+            </div>
+            <div class="form-group my-4">
+                <label>Site Engineer's Emails</label>
+                <div id="seEmails">
+                    <input 
+                        type="email" 
+                        class="form-control my-2" 
+                        name="SE_email[]" 
+                        placeholder="Enter Site Engineer's Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('seEmails', 'SE_email[]')">Add More</button>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        <% } %>
+
+
+
+    </div>
+
+
+     
+
+   
+    <script>
+        function addEmailField(containerId, fieldName) {
+            const container = document.getElementById(containerId);
+            const input = document.createElement('input');
+            input.type = 'email';
+            input.name = fieldName;
+            input.placeholder = 'Enter Email';
+            input.classList.add('form-control', 'my-2');
+            container.appendChild(input);
+    }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
