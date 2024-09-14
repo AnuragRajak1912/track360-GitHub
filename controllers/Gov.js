@@ -119,16 +119,18 @@ exports.govAdminAddUserToProject = async (req,res)=>{
     const username = decoded.name;
     const projectId = req.params.id;
 
-    const {govQA_email} = req.body;
+    const {govQA_email,govHR_email} = req.body;
 
     try{
         const gov_QA = await emp.find({ empEmail: { $in: govQA_email } });
+        const gov_HR = await emp.find({ empEmail: { $in: govHR_email } });
 
         const addUsers = await project.findByIdAndUpdate(
             projectId,
             {
                 $addToSet: {
-                    'empRoles.govQA': { $each: gov_QA.map(id=>id._id) } 
+                    'empRoles.govQA': { $each: gov_QA.map(id=>id._id) } ,
+                    'empRoles.govHR': { $each: gov_HR.map(id=>id._id) } ,
                 }
             },
             { new: true }

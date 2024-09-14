@@ -36,6 +36,7 @@
                             <%= name %>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/gov/admin">Dashboard</a></li>
                             <li><a class="dropdown-item" href="/gov/admin/addUser">Add Users</a></li>
                             <li><a class="dropdown-item" href="/logout">LogOut</a></li>
                         </ul>
@@ -57,7 +58,7 @@
                 <div class="card-body">
                 <!-- <h5 class="card-title"></h5> -->
                 <p class="card-text">Project Description - <%= projectDescriptions[index] %></p>
-                <a href="/gov/admin/addUser/project/<%= projectIds[index] %>" class="btn btn-primary">Add Users</a>
+                <a href="/gov/admin/addUser/project/<%= projectIds[index] %>" class="btn btn-primary">Assign Users To Project</a>
                 </div>
             </div>
         <% } %>

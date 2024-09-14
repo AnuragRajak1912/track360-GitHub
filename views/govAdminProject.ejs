@@ -36,6 +36,7 @@
                             <%= name %>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/gov/admin">Dashboard</a></li>
                             <li><a class="dropdown-item" href="/gov/admin/addUser">Add Users</a></li>
                             <li><a class="dropdown-item" href="/logout">LogOut</a></li>
                         </ul>
@@ -69,38 +70,64 @@
     <% } %>
     
         <form method="post" action="/gov/admin/addUser/project/<%= projectId %>">
-
-          <h3>Add Users ...</h3>  
-
-          <label>Gov QA emails</label>
-          <div class="form-group my-4"></div>
-            <div id="govEmails">
-                <input 
-                    type="email" 
-                    class="form-control my-4" 
-                    name="govQA_email[]" 
-                    placeholder="Enter Gov QA Email">
+            <h3>Assign Users ...</h3>  
+            <div class="form-group my-4">
+                <label for="inputExampleEmail1">Gov QA emails</label>
+                <div id="gov_QA_Emails">
+                    <input 
+                        id="inputExampleEmail1"
+                        type="email" 
+                        class="form-control my-2" 
+                        name="govQA_email[]" 
+                        placeholder="Enter Gov QA Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('gov_QA_Emails', 'govQA_email[]')">Add More</button>
             </div>
-            <button type="button" class="btn btn-secondary" onclick="addEmailField('govEmails', 'govQA_email[]')">Add More</button>
+            <div class="form-group my-4">
+                <label for="inputExampleEmail1">Gov HR emails</label>
+                <div id="gov_HR_Emails">
+                    <input 
+                        id="inputExampleEmail1"
+                        type="email" 
+                        class="form-control my-2" 
+                        name="govHR_email[]" 
+                        placeholder="Enter Gov QA Email">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addEmailField('gov_HR_Emails', 'govHR_email[]')">Add More</button>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-          
-          
         </form>
-      </div>
+    </div>
 
 
-        <script>
-            function addEmailField(containerId, fieldName) {
-                const container = document.getElementById(containerId);
-                const input = document.createElement('input');
-                input.type = 'email';
-                input.name = fieldName;
-                input.placeholder = 'Enter Gov QA Email';
-                input.classList.add('form-control', 'my-4');
-                container.appendChild(input);
-            }
-        </script>
+      <script>
+        function addEmailField(containerId, fieldName) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.classList.add('input-group', 'my-4');
+            const input = document.createElement('input');
+            input.type = 'email';
+            input.name = fieldName;
+            input.placeholder = 'Enter Email';
+            input.classList.add('form-control');
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.classList.add('btn', 'btn-danger', 'ms-2');
+            removeButton.textContent = 'Remove';
+            removeButton.onclick = function() {
+                removeEmailField(removeButton);
+            };
+    
+            div.appendChild(input);
+            div.appendChild(removeButton);
+    
+            container.appendChild(div);
+        }
+    
+        function removeEmailField(button) {
+            button.parentElement.remove();
+        }
+    </script>
 
    
 
