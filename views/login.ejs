@@ -32,6 +32,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/login">LogIN</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home Page</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -89,6 +92,13 @@
                 `;
       } else if (result.status === 'Success') {
         window.location.href = result.redirect;
+      } else if (result.status === 'Error 403') {
+        alertPlaceholder.innerHTML = `
+                  <div class="alert alert-warning alert-dismissible fade show fontError" role="alert">
+                    <strong>${result.status} </strong> -> ${result.message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                `;
       }
     });
   </script>

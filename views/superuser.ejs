@@ -36,9 +36,12 @@
                             <%= name %>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/superuser/addUser">Add Users</a></li>
-                            <li><a class="dropdown-item" href="/logout">LogOut</a></li>
-                        </ul>
+                          <li><a class="dropdown-item" href="/superuser/addUserCompany">Add Company</a></li>
+                          <li><a class="dropdown-item" href="/superuser/addUserGov">Add Gov Ministry</a></li>
+                          <li><a class="dropdown-item" href="#">View All Company</a></li>
+                          <li><a class="dropdown-item" href="#">View All Gov Ministry</a></li>
+                          <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                      </ul>
                         <li class="nav-item">
                           <a class="nav-link" aria-current="page" href="#">superUser</a>
                       </li>
@@ -57,6 +60,11 @@
                 <strong><%= status %></strong> -> <%= message %>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            <script>
+              if (<%= resetForm %>) {
+                  Array.from(document.getElementsByTagName('form')).forEach(form => form.reset());
+              }
+          </script>
         <% } else if (status === 'ERROR') { %>
             <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
                 <strong><%= status %></strong> -> <%= message %>
@@ -65,10 +73,11 @@
         <% } %>
     <% } %>
     
-        <form id="signinForm" method="post" action="/superuser/addUser">
-
+    <% if (typeof display !== 'undefined') { %>
+     
+      <% if ( display === 'AddCompany') { %>
+        <form id="signinForm" method="post" action="/superuser/addUserCompany">
           <h3>Company Info...</h3>  
-
           <div class="form-group my-4">
             <label for="company_name">company_name</label>
             <input 
@@ -123,9 +132,13 @@
                 placeholder="Enter password for the Admin" 
                 name="company_admin_password">
           </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      <% } %>      
 
+      <% if (display==='AddGov') { %>
+        <form id="signinForm" method="post" action="/superuser/addUserGov">
           <h3>Government Organizations Info...</h3>  
-
           <div class="form-group my-4">
             <label for="gov_name">gov_ministry_name</label>
             <input 
@@ -171,9 +184,11 @@
                 placeholder="Enter password for the Admin" 
                 name="gov_admin_password">
           </div>
-          
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+      <% } %>
+
+    <% } %>  
       </div>
 
 

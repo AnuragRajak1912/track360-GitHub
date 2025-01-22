@@ -53,23 +53,8 @@
     </nav>
 
     <div class="container my-4">
-
-        
-      <% if (typeof status !== 'undefined') { %>
-        <% if (status === 'SUCCESS') { %>
-            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
-                <strong><%= status %></strong> -> <%= message %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% } else if (status === 'ERROR') { %>
-            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
-                <strong><%= status %></strong> -> <%= message %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% } %>
-    <% } %>
-    
-        <form method="post" action="/gov/admin/addUser/project/<%= projectId %>">
+        <div id="alert-placeholder"></div>
+        <form id="govAddUser">
             <h3>Assign Users ...</h3>  
             <div class="form-group my-4">
                 <label for="inputExampleEmail1">Gov QA emails</label>
@@ -99,8 +84,13 @@
         </form>
     </div>
 
+    <script>
+        const projectId = "<%= projectId %>";
+    </script>
 
-      <script>
+    <script src="/js/govAssignUser.js"></script>
+
+    <script>
         function addEmailField(containerId, fieldName) {
             const container = document.getElementById(containerId);
             const div = document.createElement('div');

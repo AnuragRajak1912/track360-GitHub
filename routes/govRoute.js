@@ -1,6 +1,6 @@
 // Importing Router
 const { Router } = require('express');
-const { govAdminDashboardPage, govAdminAddUser, govAdminAddUserPage ,govAdminAddUserPageToProject, govAdminAddUserToProject} = require('../controllers/Gov');
+const { govAdminDashboardPage, govAdminAddUser, govAdminAddUserPage ,govAdminAddUserToProjectPage, govAdminAddUserToProject} = require('../controllers/gov');
 const router = Router();
 
 
@@ -13,7 +13,7 @@ router.get('/admin/addUser', govAdminAddUserPage);
 router.post('/admin/adduser', govAdminAddUser);
 
 
-router.get('/admin/addUser/project/:id', govAdminAddUserPageToProject);
+router.get('/admin/addUser/project/:id', govAdminAddUserToProjectPage);
 router.post('/admin/addUser/project/:id', govAdminAddUserToProject);
 
 

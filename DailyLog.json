@@ -46,6 +46,12 @@
       "Date":"13/09/2024",
       "Done By":"Anurag Rajak",
       "Description":"Add a controller for govAdmin to add gov users to the project"
+    },
+
+    {
+      "Date":"10/10/2024",
+      "Done By":"Anurag Rajak",
+      "Description":"Fixed a lot of things, listed in NextIteration.md"
     }
 
 ]   

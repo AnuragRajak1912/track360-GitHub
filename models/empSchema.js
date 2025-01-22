@@ -10,6 +10,7 @@ const empSchema = new Schema({
     empEmail : {
         type : String,
         required : true,
+        unique : true,
     },
 
     empPassword : {

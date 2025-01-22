@@ -28,11 +28,6 @@ const govSchema = new Schema({
         required : true,
     },
 
-    dirPath: {
-        type: String,
-        required: true
-    },
-
 }, { timestamps : true });
 
 const gov = model('gov',govSchema);

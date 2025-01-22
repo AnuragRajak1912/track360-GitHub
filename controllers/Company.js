@@ -2,11 +2,12 @@
 const emp = require('../models/empSchema');
 const gov = require('../models/govSchema');
 const project = require('../models/projectSchema');
+const company = require('../models/companySchema');
 
 const {validateToken} = require("../utility/jwt");
 const {projectDirectory} = require("../utility/storage");
 
-exports.adminDashboardPage = (req,res)=>{
+exports.adminDashboardPage = async (req,res)=>{
 
     const token = req.cookies.authToken;
     if(!token) return res.redirect('/login');
@@ -14,8 +15,17 @@ exports.adminDashboardPage = (req,res)=>{
     try{
         const decoded = validateToken(token);
         const username = decoded.name;
+
+        const allProjects = await project.find({companyID: decoded.ID});
+        const projectIds = allProjects.map(projectIds=>projectIds._id);
+        const projectNames = allProjects.map(projectName=>projectName.projectName);
+        const projectDescriptions = allProjects.map(projectDescription=>projectDescription.projectDescription);
+
         res.render('companyAdminDashboard',{
             name : username,
+            projectIds,
+            projectNames,
+            projectDescriptions
         });
     }catch(error){
         console.log(error);
@@ -50,7 +60,7 @@ exports.adminAddUser = async (req, res) => {
         emp_email,
         emp_password
     } = req.body;
-    
+
     const token = req.cookies.authToken;
     let username = '';
 
@@ -69,19 +79,17 @@ exports.adminAddUser = async (req, res) => {
 
         await newEmpUser.save();
 
-        res.render('companyAdmin', {
+        res.json({
             name: username,
             status: 'SUCCESS',
             message: 'User added successfully!',
-            display : 'Add User',
         });
     } catch (error) {
         console.log(error)
-        res.render('companyAdmin', {
+        res.json({
             name: username,
             status: 'ERROR',
             message: 'An error occurred while adding user.',
-            display : 'Add User',
         });
     }
 };
@@ -132,11 +140,12 @@ exports.adminAddProject = async (req, res) => {
         const decoded = validateToken(token);
         username = decoded.name;
         const companyID = decoded.ID;
+        const companyUser = await company.findById(companyID);
 
         const govUser = await gov.findOne({ govMinistry:gov_ministry });
         const gov_ID = govUser._id;
 
-        const dir_path = projectDirectory(govUser.dirPath,project_name);
+        const dir_path = projectDirectory(companyUser.dirPath,project_name);
 
         const PM = await emp.find({ empEmail: { $in: PM_email } });
         const QA = await emp.find({ empEmail: { $in: QA_email } });
@@ -169,19 +178,17 @@ exports.adminAddProject = async (req, res) => {
 
         await newProject.save();
 
-        res.render('companyAdmin', {
+        res.json({
             name: username,
             status: 'SUCCESS',
             message: 'Project added successfully!',
-            display : 'Add Project',
         });
     } catch (error) {
         console.log(error)
-        res.render('companyAdmin', {
+        res.josn({
             name: username,
             status: 'ERROR',
             message: 'An error occurred while adding project.',
-            display : 'Add Project',
         });
     }
 

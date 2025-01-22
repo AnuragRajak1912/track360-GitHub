@@ -1,0 +1,107 @@
+<div class="container my-4">
+
+    <div id="alert-placeholder"></div>
+
+    <form id="AddUser">
+
+      <h3>Assign Employee to a Project</h3>
+      <div class="form-group my-4">
+        <label for="emp_email">Employee email</label>
+        <input 
+            type="email" 
+            class="form-control" 
+            id="emp_email" 
+            placeholder="Enter name of the Company"
+            name="emp_email">
+      </div>
+      <div class="form-group my-4">
+        <label for="exampleFormControlSelect1">Select Project</label>
+        <select class="form-control" id="project" name="project">
+          <% for( let index = 0; index < projectName.length; index++ ) { %>
+            <option value="<%= projectID[index] %>">
+                <%= projectName[index] %>
+            </option>
+          <% } %>
+        </select>
+      </div>
+      
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+<!-- <script>
+    const form = document.getElementById('AddUser');
+    const alertPlaceholder = document.getElementById('alert-placeholder');
+    form.addEventListener('submit',async function(e){
+        e.preventDefault();
+        const emp_email = document.getElementById('emp_email').value;
+        console.log(emp_email)
+        const project = document.getElementById('project').value;
+        console.log(project)
+        const response = await fetch(`/user/HR/${project}`,{
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({emp_email})
+        });
+        const result = await response.json();
+        if(result.status==='SUCCESS'){
+            alertPlaceholder.innerHTML = `
+            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
+            <strong>${result.status}</strong> -> ${result.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            `;
+        } else if(result.status === 'ERROR'){
+            alertPlaceholder.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
+            <strong>${result.status}</strong> -> ${result.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            `;
+        }
+    });
+</script> -->
+<script>
+  const form = document.getElementById('AddUser');
+const alertPlaceholder = document.getElementById('alert-placeholder');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const emp_email = document.getElementById('emp_email').value;
+    const project = document.getElementById('project').value;
+
+    const response = await fetch(`/user/HR/${project}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ emp_email })
+    });
+
+    const result = await response.json();
+
+    if (result.status === 'SUCCESS') {
+        alertPlaceholder.innerHTML = `
+            <div class="alert alert-success alert-dismissible fade show fontError" role="alert">
+                <strong>${result.status}</strong> -> ${result.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        // Reload the page to update the chart with new data
+        setTimeout(() => {
+            location.reload();
+        }, 2000); // Optional delay before reload to allow user to read the success message
+    } else if (result.status === 'ERROR') {
+        alertPlaceholder.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show fontError" role="alert">
+                <strong>${result.status}</strong> -> ${result.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+    }
+});
+
+</script>

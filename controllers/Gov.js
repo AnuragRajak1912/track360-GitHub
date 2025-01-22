@@ -76,22 +76,20 @@ exports.govAdminAddUser = async (req, res) => {
 
         await newEmpUser.save();
 
-        res.render('govAdmin', {
-            name: username,
+        res.json({
             status: 'SUCCESS',
-            message: 'User added successfully!'
+            message: 'User added successfully!',
         });
     } catch (error) {
         console.log(error)
-        res.render('govAdmin', {
-            name: username,
+        res.json({
             status: 'ERROR',
             message: 'An error occurred while adding user.'
         });
     }
 }
 
-exports.govAdminAddUserPageToProject = (req,res)=>{
+exports.govAdminAddUserToProjectPage = (req,res)=>{
 
     const token = req.cookies.authToken;
     if(!token) return res.redirect('/login');
@@ -136,17 +134,13 @@ exports.govAdminAddUserToProject = async (req,res)=>{
             { new: true }
         );
 
-        res.render('govAdminProject',{
-            name : username,
-            projectId,
+        res.json({
             status: 'SUCCESS',
             message: 'User added successfully!'
         });
     }catch(error){
         console.log(error);
-        res.render('govAdmin', {
-            name: username,
-            projectId,
+        res.json({
             status: 'ERROR',
             message: 'An error occurred while adding user.'
         });

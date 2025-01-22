@@ -8,11 +8,13 @@ const cookieParser = require('cookie-parser');
 
 // imported modules created by track360 team
 const superUser = require("./models/superUserSchema");
-const userRoute = require("./routes/loginRoute");
+const loginRoute = require("./routes/loginRoute");
 const superUserRoute = require("./routes/superUserRoute");
 const logoutRoute = require("./routes/logoutRoute");
 const govRoute = require("./routes/govRoute");
 const companyRoute = require("./routes/companyRoute");
+const homePageRoute = require("./routes/homePageRoute");
+const userRoute = require("./routes/userRoute.js");
 
 const app = express();
 const port = process.env.PORT||8000;
@@ -35,22 +37,18 @@ mongoose.connect(process.env.MONGODB_URI).
         //     name: 'superuser',
         //     email: 'superuser@gmail.com',
         //     password : "superuser",
-        //     contactNumber: 1234567890,
-        //     role : "SuperUser"
         // });
         // return newUser.save();
         });
 
 // Routes
-app.get('/', (req, res) => {
-  res.render("homepage");
-});
-
-app.use('/login',userRoute);
+app.use('/',homePageRoute);
+app.use('/login',loginRoute);
 app.use('/superuser',superUserRoute);
 app.use('/logout',logoutRoute);
 app.use('/gov',govRoute);
 app.use('/company',companyRoute);
+app.use('/user',userRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

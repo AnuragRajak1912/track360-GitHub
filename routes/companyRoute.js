@@ -3,7 +3,7 @@ const { Router } = require('express');
 const router = Router();
 
 // Importing Function Created By track360 Team
-const {  adminDashboardPage, adminAddUserPage, adminAddUser, adminAddProjectPage, adminAddProject } = require('../controllers/Company');
+const {  adminDashboardPage, adminAddUserPage, adminAddUser, adminAddProjectPage, adminAddProject } = require('../controllers/company');
 
 // Routes
 router.get('/admin',adminDashboardPage);

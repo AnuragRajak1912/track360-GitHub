@@ -18,16 +18,6 @@ const superUserSchema = new Schema({
         required : true,
     },
 
-    contactNumber : {
-        type : Number,
-        required : true,
-    },
-
-    role : {
-        type : String,
-        role : String,
-    }
-
 }, { timestamps : true });
 
 const superUser = model('superUser',superUserSchema);

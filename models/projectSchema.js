@@ -93,6 +93,11 @@ const projectSchema = new Schema({
         }],
     },
 
+    empsWorking : [{
+        type : String,
+        ref : 'emp'
+    }],
+
     dirPath: {
         type: String,
     },

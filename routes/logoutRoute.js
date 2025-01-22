@@ -2,7 +2,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { logout } = require('../controllers/Auth');
+const { logout } = require('../controllers/auth');
 // Routes
 router.get('/',logout);
 
